@@ -2,7 +2,7 @@ import express from 'express'
 import morgan from 'morgan'
 import { networkInterfaces } from 'node:os'
 
-let app = express()
+const app = express()
 app.use(morgan('tiny'))
 
 // const IPV4 = networkInterfaces()['Wi-Fi'][1].address
@@ -13,6 +13,6 @@ app.get('/', (req, res) => {
 })
 
 
-app.listen(5000, () => {
-    console.log('Server PORT : 5000')
+app.listen(8080, () => {
+    console.log('Server PORT : 8080')
 })

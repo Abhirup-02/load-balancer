@@ -4,7 +4,7 @@ services:
   web:
     build: ./server
     ports:
-      - 5000
+      - 8080
     restart: always
     deploy:
       mode: replicated
@@ -19,7 +19,7 @@ services:
   #   image: server
   #   container_name: Server-1
   #   ports:
-  #     - 8001:5000
+  #     - 8001:8080
   #   restart: always
   #   deploy:
   #     replicas: 1
@@ -33,7 +33,7 @@ services:
   #   image: server
   #   container_name: Server-2
   #   ports:
-  #     - 8002:5000
+  #     - 8002:8080
   #   restart: always
   #   deploy:
   #     replicas: 1
@@ -47,7 +47,7 @@ services:
   #   image: server
   #   container_name: Server-3
   #   ports:
-  #     - 8003:5000
+  #     - 8003:8080
   #   restart: always
   #   deploy:
   #     replicas: 1
