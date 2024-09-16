@@ -7,3 +7,5 @@ if [ $? -ne 0 ]; then
 fi
 
 echo "Load test passed, proceeding with commit."
+
+# use git commit with -n flag to skip hooks
