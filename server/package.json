@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index",
-    "prepare": "husky"
+    "prepare": "cd .. && husky server/.husky"
   },
   "keywords": [],
   "author": "",
