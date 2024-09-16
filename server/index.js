@@ -1,18 +1,21 @@
 import express from 'express'
 import morgan from 'morgan'
-import { networkInterfaces } from 'node:os'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 const app = express()
+
+
 app.use(morgan('tiny'))
 
-// const IPV4 = networkInterfaces()['Wi-Fi'][1].address
 
 
 app.get('/', (req, res) => {
     res.send('Hello World🌍')
 })
 
-
-app.listen(8080, () => {
-    console.log('Server PORT : 8080')
+const port = process.env.PORT
+app.listen(port, () => {
+    console.log(`Server PORT : ${port}`)
 })
