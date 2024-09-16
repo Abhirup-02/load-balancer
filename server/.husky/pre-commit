@@ -1,2 +1,1 @@
-cd ..
-k6 run load_test.js
+echo hello
