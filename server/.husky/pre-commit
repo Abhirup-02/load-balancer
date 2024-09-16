@@ -1,1 +1,9 @@
 k6 run load_test.js
+
+# k6 exited with 0 (success)
+if [ $? -ne 0 ]; then
+  echo "Load test failed, aborting commit."
+  exit 1
+fi
+
+echo "Load test passed, proceeding with commit."
