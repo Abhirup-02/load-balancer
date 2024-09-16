@@ -3,76 +3,26 @@ name: loadbalancer
 services:
   web:
     build: ./server
-    ports:
+    expose:
       - 8080
     restart: always
     deploy:
       mode: replicated
-      replicas: 3
+      replicas: 6
     networks: 
-      testnetwork:
-        aliases:
-          - web
-  
-  # server1:
-  #   build: ./server
-  #   image: server
-  #   container_name: Server-1
-  #   ports:
-  #     - 8001:8080
-  #   restart: always
-  #   deploy:
-  #     replicas: 1
-  #   networks: 
-  #     testnetwork:
-  #       aliases:
-  #         - server1
-
-
-  # server2:
-  #   image: server
-  #   container_name: Server-2
-  #   ports:
-  #     - 8002:8080
-  #   restart: always
-  #   deploy:
-  #     replicas: 1
-  #   networks: 
-  #     testnetwork:
-  #       aliases:
-  #         - server2
-
-
-  # server3:
-  #   image: server
-  #   container_name: Server-3
-  #   ports:
-  #     - 8003:8080
-  #   restart: always
-  #   deploy:
-  #     replicas: 1
-  #   networks: 
-  #     testnetwork:
-  #       aliases:
-  #         - server3
-
+      - internal_network
 
 
   nginx:
     build: ./load-balancer
-    container_name: nginx
-    links:
-      - web
-      # - server1
-      # - server2
-      # - server3
     ports:
       - 80:80
     restart: always
     networks: 
-      testnetwork:
-        aliases:
-          - nginx
+      - internal_network
+    depends_on:
+      - web
 
 networks:
-  testnetwork:
+  internal_network:
+    driver: bridge
