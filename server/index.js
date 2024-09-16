@@ -1,8 +1,8 @@
-import express from 'express'
-import morgan from 'morgan'
-import dotenv from 'dotenv'
+const express = require('express')
+const morgan = require('morgan')
 
-dotenv.config()
+require('dotenv').config()
+
 
 const app = express()
 
