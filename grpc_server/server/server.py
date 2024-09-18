@@ -2,8 +2,8 @@ import grpc
 import logging
 from concurrent import futures
 
-from python_grpc.grpc_types.service_pb2_grpc import add_GreeterServicer_to_server
-from python_grpc.server.servicers.greeter import Greet
+from grpc_server.grpc_types.service_pb2_grpc import add_GreeterServicer_to_server
+from grpc_server.server.servicers.greeter import Greet
 
 
 def serve() -> None:
